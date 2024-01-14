@@ -26,3 +26,4 @@ dist-ssr
 # terrafomr
 infra/.terraform
 infra/*.tfstate
+infra/*.tfstate.*

@@ -14,7 +14,7 @@ provider "aws" {
 
 resource "aws_amplify_app" "react-aws-play-with-image" {
   name         = "react-aws-play-with-image"
-  repository   = "https://github.com/st-user/react-aws-play-with-image.git"
+  repository   = "https://github.com/st-user/react-aws-play-with-image"
   access_token = var.token
 
 
