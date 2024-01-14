@@ -1,7 +1,13 @@
-function App() {
-    const message = 'Hello World!'
+import { CssBaseline } from '@mui/material'
+import { Picture } from './features/Picture'
 
-    return <>{message}</>
+function App() {
+    return (
+        <>
+            <CssBaseline />
+            <Picture />
+        </>
+    )
 }
 
 export default App
