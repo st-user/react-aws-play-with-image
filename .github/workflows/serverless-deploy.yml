@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   deploy:
+    environment: DEV
     name: deploy
     runs-on: ubuntu-latest
     strategy:
@@ -33,3 +34,5 @@ jobs:
       with:
         args: deploy
         entrypoint: app/lambda-s3
+      env:
+        AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
