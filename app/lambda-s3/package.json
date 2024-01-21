@@ -1,0 +1,24 @@
+{
+  "name": "lambda-s3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm ci && npm rebuild --arch=x64 --platform=linux sharp && rm -rf dist && tsc",
+    "deploy:serverless": "npm run build && serverless deploy",
+    "prepare:tf:zip": "npm run build && rm -rf work && mkdir -p work && zip -r work/functions.zip dist node_modules package.json",
+    "prepare:tf": "npm run build && rm -rf work && mkdir -p work && cp -r dist node_modules package.json work/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.496.0",
+    "@types/aws-lambda": "^8.10.131",
+    "save-dev": "^0.0.1-security",
+    "sharp": "^0.32.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

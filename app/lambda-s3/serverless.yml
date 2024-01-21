@@ -1,0 +1,22 @@
+service: my-s3-lambda
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-northeast-1
+
+
+functions:
+  myFunction:
+    handler: ./dist/index.handler
+    role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/LambdaS3Role
+    events:
+      - s3:
+          bucket: tomoki-sato-aws-image-study-bucket
+          event: s3:ObjectCreated:*
+          existing: true
+
+package:
+  include:
+    - node_modules/**
+    - dist/**
