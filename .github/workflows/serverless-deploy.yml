@@ -27,7 +27,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v3
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-        aws-region: ${{ env.AWS_REGION }}
+        aws-region: ${{ vars.AWS_REGION }}
     - run: cd app/lambda-s3 && npm run build
     - name: serverless deploy
       uses: serverless/github-action@v3.2
